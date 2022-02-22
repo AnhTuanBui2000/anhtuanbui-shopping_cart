@@ -1,0 +1,39 @@
+<h1>Bài tập shopping cart cơ bản</h1>
+<table class="form-items">
+  <tr>
+<td class="items">
+  {{iphone13.name}}
+  <img src="{{iphone13.image}}">
+  giá:{{iphone13.price}}
+  <button (click)=addToCart(iphone13.name,iphone13.price,iphone13.image)>Thêm vào giỏ hàng</button> 
+</td>
+<td class="items">
+  {{iphone12.name}}
+  <img src="{{iphone12.image}}">
+  giá:{{iphone12.price}}
+  <button (click)=addToCart(iphone12.name,iphone12.price,iphone12.image)>Thêm vào giỏ hàng</button> 
+</td>
+<td class="items">
+  {{iphone11.name}}
+  <img src="{{iphone11.image}}">
+  giá:{{iphone11.price}}
+  <button (click)=addToCart(iphone11.name,iphone11.price,iphone11.image)>Thêm vào giỏ hàng</button> 
+</td>
+</tr>
+</table>
+<table border="1" class="cart">
+  <tr>
+    <th>Tên sản phẩm</th>
+    <th>Giá sản phẩm</th>
+    <th>Số lượng</th>
+    <th>Thành tiền</th>
+  </tr>
+<tr *ngFor="let iphone of iphones">
+  <td>{{iphone.name}}</td>
+  <td>{{iphone.price}}</td>
+  <td><button (click)="subAmount(iphone.name)">-</button>{{iphone.amount}}<button (click)="sumAmount(iphone.name)">+</button></td>
+  <td>{{iphone.total}}</td>
+</tr>
+</table>
+<div style="text-align:center">Tổng:{{sum}}</div>
+
